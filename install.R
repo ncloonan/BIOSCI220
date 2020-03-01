@@ -1,6 +1,7 @@
 install.packages('IRkernel')
 install.packages("devtools") # we need this to install github packages
 options(unzip = "unzip")
-source("https://bioconductor.org/biocLite.R")
-biocLite()
-biocLite(c('limma', 'edgeR', 'ggplot2'))
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install(version = "3.10")
+BiocManager::install(c("ggplot2", "tidyr", "dplyr"))
